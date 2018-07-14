@@ -1,0 +1,60 @@
+					PageRank SYSTEM
+
+Team members :Shubham Singal 2015A7PS0168H
+                 Rahul Ladda 2014A7PS0078H
+                 Samkit Jain 2015A7PS0102H
+
+This system is a implimentation of PageRank algorithm.
+The major datastructures used this project are :
+1:	python-lists for storing nodes, Deadends,node_sizes
+2:	python-list of lists for storing PageRanks, outlinks and inlinks  
+
+
+pakages used :
+	time :   to find the run time of program
+	random:  to find a random node
+	networkx, pylab and matplotlib: to visualize Pagerank
+	there Documentation can be found at:
+	networkx:	https://networkx.github.io/documentation/stable/
+	matplotlib: https://matplotlib.org/contents.html
+	pylab:		Pylab is basically just Numpy and Matplotlib under a unified namespace.
+
+Architecture of system:
+The Enhanced PageRank equation is used in the system hich gives
+solution for Cycles and If a random surfer gets bored
+	
+	r(k+1)(pi)=d(sumj(p(k)[j]/len(outLinks[j]))+ sum(Deadends)/N) + (1-d)/N
+
+Here ‘d ‘ is known as damping factor . It represents the probability, at any step, that the
+person will continue surfing . The value of ‘d’ is typically kept 0.85
+
+Time complexity of program is O(NK + T)
+	where N is number of nodes in Dataset 
+	K is average inlinks to nodes
+	T is number of DeadEnds in Dataset
+
+reading the file
+		||
+		\/
+get the size of data
+		||
+		\/
+initializing and filling the outlinks and inlinks using graph read from file
+		||
+		\/
+intializing pagerank to each of avg value 1/N
+		||
+		\/
+initializing graph to visualize by picking a random node
+		||
+		\/
+calculating PageRank till it converges
+		||
+		\/
+visualization in each alternate step using pylab
+		||
+		\/
+output the time of total time of program
+-------------------------------------------------------------
+
+

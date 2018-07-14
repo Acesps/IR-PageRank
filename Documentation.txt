@@ -1,0 +1,64 @@
+					PageRank SYSTEM
+This system is a implimentation of PageRank algorithm.
+
+There are total of 2 modules in the system which inturn imports many modules.
+Modules are: 
+	PageRank
+	visualize
+
+PageRank module uses 4 modules namely:
+	1.networkx
+	2.matplotlib.pyplot
+	3.random
+	4.pylab
+
+	There is only one fuunction in module:initialize_graph(outlinks,layout="xNotAsCentre")
+		The Function returns a networkx Digraph, a list of nodes in it and layout positions  
+		it takes 2 arguments, first is list of outlinks from one node to another
+		other argument is a string that tell weather the random node should be in 
+		centre of graph generated or not. 
+		The other nodes are picked accordingly.
+		This function picks nodes, add their edges and decide position for nodes in 
+		graph using fuctions from networkx libarary.
+		layout for node position is chosen as spring
+	The rest of the code is module reads the contents of file "web-Stanford.txt" 
+	from the same folder and builds a graph from it.
+	Now the graph is itarated to fill values in outLinks and inLinks list of lists.
+	The PageRank is initialized to avg value.
+	All the nodes that are Deadends and do not point to any other pages are collected in the DeadEnds list 
+	The initialize_graph function is called.
+	Then the page rank is calculated using inLinks, outLinks and older PageRank and the enhanced PageRank equation till PageRank converges.
+	The summation of PageRanks of Deadends is calculated only once in each iteration.
+	The PageRank of random nodes are visualized on every alternate iteration.
+	The runing time of algorithm including the visualization time is displayed at the end.
+
+
+visualize module uses 3 python modules:
+	1.networkx
+	2.matplotlib.pyplot
+	3.pylab
+	There is only one function in module: visualize(PageRank,G,nodes,graph_pos,node_color='red', node_alpha=0.3,
+               node_text_size=12,
+               edge_color='blue', edge_alpha=0.3, edge_tickness=1,
+               edge_text_pos=0.3,
+               text_font='sans-serif')      
+
+        This function runs 3 functions:
+       		nx.draw_networkx_nodes(G,graph_pos,node_size=node_size,alpha=node_alpha, node_color=node_color)
+			nx.draw_networkx_edges(G,graph_pos,width=edge_tickness,alpha=edge_alpha,edge_color=edge_color,arrows=True)
+			nx.draw_networkx_labels(G, graph_pos,font_size=node_text_size,font_family=text_font)
+	    Documentation of these functions can be found at  
+	    https://networkx.github.io/documentation/networkx-1.7/reference/generated/networkx.drawing.nx_pylab.draw_networkx_nodes.html
+	    https://networkx.github.io/documentation/networkx-1.10/reference/generated/networkx.drawing.nx_pylab.draw_networkx_edges.html
+	    https://networkx.github.io/documentation/networkx-1.10/reference/generated/networkx.drawing.nx_pylab.draw_networkx_labels.html
+
+	    This function sets value of node size accoring to its PageRank and normalizes it.
+
+
+
+Documentaion of 4 modules used can be found at:
+	networkx:	https://networkx.github.io/documentation/stable/
+	matplotlib: https://matplotlib.org/contents.html
+	random: 	https://docs.python.org/2/library/random.html
+	pylab:		Pylab is basically just Numpy and matplotlib under a unified namespace.
+	time: 		https://docs.python.org/2/library/time.html
